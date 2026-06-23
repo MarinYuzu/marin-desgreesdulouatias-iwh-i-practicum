@@ -36,4 +36,21 @@ const hubspot = axios.create({
 
 // --- Démarrage du serveur ---
 const PORT = 3000;
+// --- Route 1 : Homepage ---
+// Récupère tous les enregistrements du custom object et les affiche dans un tableau
+app.get('/', async (req, res) => {
+  const url = `/crm/v3/objects/${CUSTOM_OBJECT_TYPE}?properties=${PROPERTIES.join(',')}`;
+  try {
+    const resp = await hubspot.get(url);
+    const records = resp.data.results;
+    res.render('homepage', {
+      title: 'Homepage | Integrating With HubSpot I Practicum',
+      records,
+      properties: PROPERTIES,
+    });
+  } catch (e) {
+    console.error(e.response ? e.response.data : e.message);
+    res.status(500).send('Erreur lors de la récupération des enregistrements.');
+  }
+});
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
