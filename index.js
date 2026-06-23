@@ -34,8 +34,6 @@ const hubspot = axios.create({
   },
 });
 
-// --- Démarrage du serveur ---
-const PORT = 3000;
 // --- Route 1 : Homepage ---
 // Récupère tous les enregistrements du custom object et les affiche dans un tableau
 app.get('/', async (req, res) => {
@@ -53,4 +51,15 @@ app.get('/', async (req, res) => {
     res.status(500).send('Erreur lors de la récupération des enregistrements.');
   }
 });
+
+// --- Route 2 : Formulaire de création ---
+// Affiche le formulaire pour créer un nouvel enregistrement
+app.get('/update-cobj', (req, res) => {
+  res.render('updates', {
+    title: 'Update Custom Object Form | Integrating With HubSpot I Practicum',
+  });
+});
+
+// --- Démarrage du serveur ---
+const PORT = 3000;
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
