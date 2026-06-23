@@ -1,0 +1,21 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    h1 Mes enregistrements HubSpot
+    a(href='/update-cobj') Ajouter un enregistrement
+    table
+      thead
+        tr
+          th Nom
+          th Origine
+          th Poids (kg)
+          th Numéro de série
+      tbody
+        each record in records
+          tr
+            td= record.properties.name
+            td= record.properties.origine
+            td= record.properties.poids_kg
+            td= record.properties.n_de_serie
