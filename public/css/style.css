@@ -1,58 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-body, * {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
+/* Style général */
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  color: #333;
 }
 
 h1 {
-    margin: 1rem;
+  color: #ff7a59;
 }
 
-.cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+/* Lien de navigation */
+a {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #ff7a59;
+  text-decoration: none;
 }
 
-.card {
-    flex-basis: 31%;
-    margin: 1rem 0.4rem;
-    padding: 1rem 0.4rem 2.5rem 0.4rem;
-    border: solid 1px lightgrey;
-    border-radius: 15px;
-    box-shadow: 3px 2px 6px lightgrey;
+a:hover {
+  text-decoration: underline;
 }
 
-.card__email {
-    font-size: 1rem;
+/* Tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-.form-wrapper {
-    font-size: 18px;
-    max-width: 768px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border: solid 1px lightgrey;
-    border-radius: 15px;
-    box-shadow: 3px 2px 6px lightgrey;
+th {
+  background-color: #ff7a59;
+  color: white;
+  padding: 10px;
+  text-align: left;
 }
 
-label, input {
-    margin-top: 5px;
-    display: block;
-    font-size: inherit;
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
-input[type="text"] {
-    padding: .25rem;
+tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-input[type="submit"] {
-    background-color: lightgrey;
-    border: none;
-    padding: .375rem 1rem;
-    margin-top: 10px;
+/* Formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  background-color: #ff7a59;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #e06744;
 }
