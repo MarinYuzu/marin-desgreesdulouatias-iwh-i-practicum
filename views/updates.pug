@@ -1,0 +1,25 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    h1 Ajouter un enregistrement
+    a(href='/') Retour à la homepage
+    form(action='/update-cobj', method='POST')
+      label Nom
+      input(type='text', name='name', required)
+      br
+      label Origine
+      select(name='origine')
+        option(value='Japon') Japon
+        option(value='Chine') Chine
+        option(value='USA') USA
+        option(value='France') France
+      br
+      label Poids (kg)
+      input(type='number', name='poids_kg')
+      br
+      label Numéro de série
+      input(type='text', name='n_de_serie')
+      br
+      button(type='submit') Créer l'enregistrement
