@@ -60,6 +60,26 @@ app.get('/update-cobj', (req, res) => {
   });
 });
 
+// --- Route 3 : Création d'un enregistrement ---
+// Reçoit les données du formulaire et crée un nouvel enregistrement dans HubSpot
+app.post('/update-cobj', async (req, res) => {
+  const newRecord = {
+    properties: {
+      name: req.body.name,
+      origine: req.body.origine,
+      poids_kg: req.body.poids_kg,
+      n_de_serie: req.body.n_de_serie,
+    },
+  };
+  try {
+    await hubspot.post(`/crm/v3/objects/${CUSTOM_OBJECT_TYPE}`, newRecord);
+    res.redirect('/');
+  } catch (e) {
+    console.error(e.response ? e.response.data : e.message);
+    res.status(500).send('Erreur lors de la création de l\'enregistrement.');
+  }
+});
+
 // --- Démarrage du serveur ---
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
